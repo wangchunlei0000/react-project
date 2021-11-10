@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>state</title>
+  <title>props</title>
 </head>
 <body>
 
 
   <!-- == 准备好一个 “ 容器 ” -->
   <div id="test"></div>
+  <div id="test1"></div>
   <!-- == 引入 react 核心库 （1）  -->
   <script type="text/javascript" src="../js/react.development.js"></script>
   <!-- == 引入 react-dom 用域支持 react 操作 DOM （2） 必须在 （1） 后面引入 -->
@@ -19,27 +20,26 @@
   <script type="text/javascript" src="../js/babel.min.js"></script>
 
   <script type="text/babel">
-    // 创建类式组件
-    class Weather extends React.Component {
-      constructor(props) {
-        super(props)
-        // 初始化状态
-        this.state = {
-          isHot: true
-        }
-        this.changeWeather = this.changeWeather.bind(this)
-      }
+    class Person extends React.Component {
       render() {
-        // 读取状态
-        const { isHot } = this.state
-        return <h1 onClick={this.changeWeather}>今天天气很{ isHot ? '炎热': '凉爽' }</h1>
-      }
-      changeWeather() {
-        const isHot = this.state.isHot
-        this.setState({ isHot: !isHot })
+        const { name, sex, age } = this.props
+        return (
+          <ul>
+            <li>姓名：{ name }</li>
+            <li>性别：{ sex }</li>
+            <li>年龄：{ age + 1 }</li>  
+          </ul>
+        )
       }
     }
-    ReactDOM.render(<Weather/>, document.getElementById('test'))
+
+    const info = {
+      name: "Freya",
+      age: 18,
+      sex: "女"
+    }
+    ReactDOM.render(<Person name="Tom" age={19} sex="男"/>, document.getElementById('test'))
+    ReactDOM.render(<Person {...info}/>, document.getElementById('test1'))
   </script>
 
 </body>

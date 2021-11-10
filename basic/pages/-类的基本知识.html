@@ -42,6 +42,19 @@
       }
     }
 
+    class Car {
+      constructor(name, price) {
+        this.name = name
+        this.price = price
+      }
+      // 类中可以直接写赋值语句
+      
+      wheel = 4
+    }
+
+    const c1 = new Car('奔驰', 199)
+    const c2 = new Car('宝马', 299)
+
     /*
       1、类中的构造器不是必须写的，要对实例进行一些初始化的操作时才写（eg 添加指定属性）
       2、如果 A类继承了 B类，且 A类中写了构造器，那么 A类构造器中的 super 时必须要调用的
