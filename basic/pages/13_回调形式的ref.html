@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字符串形式的ref</title>
+</head>
+<body>
+  <div id="test"></div>
+  <script type="text/javascript" src="../js/react.development.js"></script>
+  <script type="text/javascript" src="../js/react-dom.development.js"></script>
+  <script type="text/javascript" src="../js/babel.min.js"></script>
+  <script type="text/javascript" src="../js/prop-types.js"></script>
+
+  <script type="text/babel">
+
+    class Demo extends React.Component {
+      showData = () => {
+        const { input1 } = this
+        alert(input1.value)
+      }
+      showData2 = () => {
+        const { input2 } = this
+        alert(input2.value)
+      }
+
+      inputRef = c => {
+        this.input2 = c
+      }
+
+      // 内联的回调形式使用的比较多
+
+      render () {
+        return (
+          <div>
+            {/*<input ref={c => this.input1 = c} type="text" placeholder="点击按钮 提示数据"/>&nbsp;*/}
+            <button onClick={ this.showData }> 点我提示左侧的数据 </button>&nbsp; 
+            <input ref={ this.inputRef } onBlur={ this.showData2 } type="text" placeholder="失去焦点 提示数据"/>
+          </div>
+        )
+      }
+    }
+    
+    ReactDOM.render(<Demo/>, document.getElementById('test'))
+  </script>
+</body>
+</html>
