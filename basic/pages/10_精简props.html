@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>props限制</title>
+  <title>精简props</title>
 </head>
 <body>
 
@@ -23,6 +23,24 @@
 
   <script type="text/babel">
     class Person extends React.Component {
+      // constructor (props) {
+      //   // 构造器是否接收 props 是否传递给 super ，取决是否希望在构造器中通过 this 访问 props
+      //   super(props)
+      //   console.log('constructor', this.props)
+      // }
+      // 类属性
+      static propTypes = {
+        name: PropTypes.string.isRequired,
+        sex: PropTypes.string,
+        age: PropTypes.number,
+        say: PropTypes.func
+      }
+
+      static defaultProps = {
+        sex: '男',
+        age: 18
+      }
+
       render() {
         const { name, sex, age } = this.props
         return (
@@ -34,31 +52,14 @@
         )
       }
     }
-    // 对标签属性进行类型、必要性限制
-    Person.propTypes = {
-      name: PropTypes.string.isRequired,
-      sex: PropTypes.string,
-      age: PropTypes.number,
-      say: PropTypes.func
-    }
-    // 指定默认标签属性值
-    Person.defaultProps = {
-      sex: '男',
-      age: 18
-    }
 
     const info = {
       name: "Freya",
       age: 18,
       sex: "女",
-      say: say
     }
-    ReactDOM.render(<Person name="Tom" age={19} sex="男" say={say}/>, document.getElementById('test'))
-    ReactDOM.render(<Person {...info}/>, document.getElementById('test1'))
+    ReactDOM.render(<Person name="Tom"/>, document.getElementById('test'))
 
-    function say() {
-      console.log('我说话了---')
-    }
   </script>
 
 </body>
