@@ -39,6 +39,8 @@
       state = {
         userName: '',
         password: '',
+        userName1: '',
+        password1: '',
       }
       login = (event) => {
         event.preventDefault()
@@ -48,12 +50,18 @@
           this.setState({ [dataKey]: event.target.value })
         }
       }
+      saveData = (dataKey, event) => {
+        this.setState({[dataKey]: event.target.value})
+      }
       render () {
         return (
           <form onSubmit={this.login}>
               User: <input onChange={this.saveInfo('userName')} name="username"/><br/>
               Password: <input onChange={this.saveInfo('password')} type="password" name="password"/><br/>
-              <button> 登录 </button>
+              <button> 登录 </button><br/>
+              {/*非柯里化实现*/}
+              User: <input onChange={event => this.saveData('userName1', event)} name="username1"/><br/>
+              Password: <input onChange={event => this.saveData('password1', event)} type="password" name="password1"/><br/>
           </form>
         )
       }
