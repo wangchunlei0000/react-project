@@ -4,54 +4,43 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>props限制</title>
+  <title>函数组件使用props</title>
 </head>
 <body>
   <div id="test"></div>
-  <div id="test1"></div>
   <script type="text/javascript" src="../js/react.development.js"></script>
   <script type="text/javascript" src="../js/react-dom.development.js"></script>
   <script type="text/javascript" src="../js/babel.min.js"></script>
   <script type="text/javascript" src="../js/prop-types.js"></script>
 
   <script type="text/babel">
-    class Person extends React.Component {
-      render() {
-        const { name, sex, age } = this.props
-        return (
-          <ul>
-            <li>姓名：{ name }</li>
-            <li>性别：{ sex }</li>
-            <li>年龄：{ age + 1 }</li>  
-          </ul>
-        )
-      }
+
+    function Person (props) {
+      const { name, age, sex } = props
+      return (
+        <ul>
+          <li>姓名：{ name }</li>
+          <li>性别：{ sex }</li>
+          <li>年龄：{ age + 1 }</li>  
+        </ul>
+      )
     }
-    // 对标签属性进行类型、必要性限制
+
     Person.propTypes = {
       name: PropTypes.string.isRequired,
       sex: PropTypes.string,
       age: PropTypes.number,
       say: PropTypes.func
     }
-    // 指定默认标签属性值
+
     Person.defaultProps = {
       sex: '男',
       age: 18
     }
 
-    const info = {
-      name: "Freya",
-      age: 18,
-      sex: "女",
-      say: say
-    }
-    ReactDOM.render(<Person name="Tom" age={19} sex="男" say={say}/>, document.getElementById('test'))
-    ReactDOM.render(<Person {...info}/>, document.getElementById('test1'))
+    
+    ReactDOM.render(<Person name="Tom"/>, document.getElementById('test'))
 
-    function say() {
-      console.log('我说话了---')
-    }
   </script>
 
 </body>

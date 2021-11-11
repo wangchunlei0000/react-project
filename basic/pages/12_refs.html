@@ -4,32 +4,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>精简state</title>
+  <title>refs</title>
 </head>
 <body>
   <div id="test"></div>
   <script type="text/javascript" src="../js/react.development.js"></script>
   <script type="text/javascript" src="../js/react-dom.development.js"></script>
   <script type="text/javascript" src="../js/babel.min.js"></script>
+  <script type="text/javascript" src="../js/prop-types.js"></script>
 
   <script type="text/babel">
-    class Weather extends React.Component {
-      state = {
-        isHot: true
-      }
-      changeWeather = () => {
-        const isHot = this.state.isHot
-        this.setState({ isHot: !isHot })
-      }
 
-      render() {
-        const { isHot } = this.state
-        return <h1 onClick={this.changeWeather}>今天天气很{ isHot ? '炎热': '凉爽' }</h1>
-      }
-
-    }
-    ReactDOM.render(<Weather/>, document.getElementById('test'))
+    
+    ReactDOM.render(<Demo name="Tom"/>, document.getElementById('test'))
   </script>
-
 </body>
 </html>
