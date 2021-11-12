@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>new生命周期</title>
+</head>
+<body>
+  <div id="test"></div>
+  <script type="text/javascript" src="../js/17.0.1/react.development.js"></script>
+  <script type="text/javascript" src="../js/17.0.1/react-dom.development.js"></script>
+  <script type="text/javascript" src="../js/17.0.1/babel.min.js"></script>
+  <script type="text/javascript" src="../js/17.0.1/prop-types.js"></script>
+
+  <script type="text/babel">
+
+    class Count extends React.Component {
+      
+      state = {
+        count: 0
+      }
+      add = () => {
+        const { count } = this.state
+        this.setState({ count: count+1 })
+      }
+      force = () => {
+        this.forceUpdate()
+      }
+      death = () => {
+        ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+      }
+
+      constructor(props) {
+        console.log('count---constructor')
+        console.log('cont---constructor---props', props)
+        super(props)
+      }
+
+      componentWillMount() {
+        console.log('count---componentWillMount')
+      }
+
+      componentWillReceiveProps() {
+        console.log('count---componentWillReceiveProps')
+      }
+
+      shouldComponentUpdate() {
+        console.log('count---shouldComponentUpdate')
+        return true
+      }
+
+      componentWillUpdate() {
+        console.log('count---componentWillUpdate')
+      }
+
+      componentDidUpdate() {
+        console.log('count---componentDidUpdate')
+      }
+
+      componentWillUnmount() {
+        console.log('count---componentWillUnmount')
+      }
+
+
+      render() {
+        console.log('count---render')
+        const { count } = this.state
+        return (
+          <div>
+            <span>{ count }</span><br/>
+            <button onClick={ this.add }> +1 </button>
+            <button onClick={ this.force }> forceUpdate </button>
+            <button onClick={ this.death }> 卸载 </button>
+          </div>
+        )
+      }
+    }
+
+    class A extends React.Component {
+      state = {
+        testData: 22
+      }
+      changeTestData = () => {
+        this.setState({ testData: this.state.testData+1 })
+      }
+      render() {
+        return (
+          <div>
+            <button onClick={ this.changeTestData }>A</button>  
+            <Count testData={ this.state.testData }/>
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(<A/>, document.getElementById('test'))
+
+  </script>
+</body>
+</html>
