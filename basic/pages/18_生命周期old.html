@@ -30,34 +30,34 @@
       death = () => {
         ReactDOM.unmountComponentAtNode(document.getElementById('test'))
       }
-
+      // 构造器
       constructor(props) {
         console.log('count---constructor')
-        console.log('cont---constructor---props', props)
+        console.log('count---constructor---props', props)
         super(props)
       }
-
+      // 组件将要挂载
       componentWillMount() {
         console.log('count---componentWillMount')
       }
       // 第一次传 props 不更新
-      componentWillReceiveProps() {
-        console.log('count---componentWillReceiveProps')
+      componentWillReceiveProps(nextProps) {
+        console.log('count---componentWillReceiveProps', nextProps)
       }
       // 组件将要更新的 “阀门”
       shouldComponentUpdate() {
         console.log('count---shouldComponentUpdate')
         return true
       }
-
-      componentWillUpdate() {
-        console.log('count---componentWillUpdate')
+      // 组件将要更新的钩子
+      componentWillUpdate(nextProps, nextState) {
+        console.log('count---componentWillUpdate', nextProps, nextState)
       }
-
-      componentDidUpdate() {
-        console.log('count---componentDidUpdate')
+      // 组件更新完毕
+      componentDidUpdate(preProps, preState) {
+        console.log('count---componentDidUpdate', preProps, preState)
       }
-
+      // 组件将要卸载
       componentWillUnmount() {
         console.log('count---componentWillUnmount')
       }

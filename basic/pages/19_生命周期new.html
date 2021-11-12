@@ -33,29 +33,39 @@
 
       constructor(props) {
         console.log('count---constructor')
-        console.log('cont---constructor---props', props)
         super(props)
       }
-
-      componentWillMount() {
-        console.log('count---componentWillMount')
+      // 派生状态（返回状态对象） 用处罕见 ———— state 的值完全取决于 props 的值
+      static getDerivedStateFromProps(props, state) {
+        console.log('count---getDerivedStateFromProps', props, state)
+        return null //state //{ count: 200 }
       }
 
-      componentWillReceiveProps() {
-        console.log('count---componentWillReceiveProps')
-      }
+      // 即将废弃
+      // UNSAFE_componentWillMount() {
+      //   console.log('count---componentWillMount')
+      // }
+      // 即将废弃
+      // UNSAFE_componentWillReceiveProps() {
+      //   console.log('count---componentWillReceiveProps')
+      // }
 
       shouldComponentUpdate() {
         console.log('count---shouldComponentUpdate')
         return true
       }
-
-      componentWillUpdate() {
-        console.log('count---componentWillUpdate')
+      // 获取快照 在更新之前
+      getSnapshotBeforeUpdate(preProps, preState) {
+        console.log('count---getSnapshotBeforeUpdate', preProps, preState)
+        return '传给componentDidUpdate的快照值'
       }
+      // 即将废弃
+      // UNSAFE_componentWillUpdate() {
+      //   console.log('count---componentWillUpdate')
+      // }
 
-      componentDidUpdate() {
-        console.log('count---componentDidUpdate')
+      componentDidUpdate(preProps, preState, snapshot) {
+        console.log('count---componentDidUpdate', preProps, preState, snapshot)
       }
 
       componentWillUnmount() {
@@ -77,24 +87,8 @@
       }
     }
 
-    class A extends React.Component {
-      state = {
-        testData: 22
-      }
-      changeTestData = () => {
-        this.setState({ testData: this.state.testData+1 })
-      }
-      render() {
-        return (
-          <div>
-            <button onClick={ this.changeTestData }>A</button>  
-            <Count testData={ this.state.testData }/>
-          </div>
-        )
-      }
-    }
 
-    ReactDOM.render(<A/>, document.getElementById('test'))
+    ReactDOM.render(<Count count={250}/>, document.getElementById('test'))
 
   </script>
 </body>
