@@ -15,15 +15,15 @@ export default class Footer extends Component {
   }
   render() {
     const { listData } = this.props
-    const doneList = listData.filter(item => item.done)
-    const checked = (doneList.length !==0) && (doneList.length === listData.length)
+    const doneNum = listData.reduce((pre, cur)=>{return pre + Number(cur.done)},0)
+    const checked = (doneNum !==0) && (doneNum === listData.length)
     return (
       <div className="footer-wrapper">
         <div>
           <input type="checkbox" className="ckb" checked={checked} onChange={this.changeChecked}/>
-          <span className="status">已完成 <span className="checked">{doneList.length}</span> / 全部 <span className="all">{listData.length}</span></span>
+          <span className="status">已完成 <span className="checked">{doneNum}</span> / 全部 <span className="all">{listData.length}</span></span>
         </div>
-        <button className={`delete-button ${doneList.length ? 'visible': ''}`} onClick={this.deleteDoneData}>删除已选的任务</button>
+        <button className="delete-button" onClick={this.deleteDoneData}>删除已选的任务</button>
       </div>
     )
   } 
