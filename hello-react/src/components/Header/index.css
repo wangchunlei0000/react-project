@@ -1,0 +1,10 @@
+.header-input {
+  height: 32px;
+  width: 100%;
+  border-radius: 2px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  padding-left: 12px;
+}

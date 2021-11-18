@@ -1,0 +1,36 @@
+.footer-wrapper {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.footer-wrapper .ckb {
+  margin-right: 12px;
+}
+.footer-wrapper .status {
+  font-size: 16px;
+}
+.footer-wrapper .status .checked {
+  color:rgb(79, 104, 243);
+  font-weight: bold;
+}
+.footer-wrapper .status .all {
+  color:coral;
+  font-weight: bold;
+}
+.footer-wrapper .delete-button {
+  display: none;
+  border: 1px solid #4f68f3;
+  background-color: rgb(79, 104, 243);
+  color: #fff;
+  font-size: 14px;
+  box-sizing: border-box;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.footer-wrapper .delete-button.visible {
+  display: block;
+}

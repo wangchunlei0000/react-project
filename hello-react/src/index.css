@@ -1,0 +1,10 @@
+.app-wrapper {
+  width: 600px;
+  position: absolute;
+  border: 1px dotted #ccc;
+  top: 100px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 50px;
+}
