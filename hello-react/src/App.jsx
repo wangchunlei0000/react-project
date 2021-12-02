@@ -6,18 +6,19 @@ import './App.css'
 export default class App extends Component {
 
   state = {
-    users: []
+    users: [],
+    status: 'first'
   }
 
-  saveUsers = (users) => {
-    this.setState({ users })
+  updateAppState = (stateObj) => {
+    this.setState(stateObj)
   }
 
   render() {
     return (
       <div className="app-wrapper">
-        <Search saveUsers={ this.saveUsers }/>
-        <List users={ this.state.users }/>
+        <Search updateAppState={ this.updateAppState }/>
+        <List users={ this.state.users } status={ this.state.status }/>
       </div>
     )
   }
