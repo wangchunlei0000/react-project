@@ -1,20 +1,8 @@
 import React, { Component } from 'react'
-import PubSub from 'pubsub-js'
+
 export default class List extends Component {
-
-  state = {
-    users: [],
-    status: 'first'
-  }
-
-  componentDidMount() {
-    PubSub.subscribe('listData', (_, data) => {
-      this.setState(data)
-    })
-  }
-
   render() {
-    const { status, users } = this.state
+    const { status, users } = this.props
     return (
       <div className="search-list-wrapper">
         {
