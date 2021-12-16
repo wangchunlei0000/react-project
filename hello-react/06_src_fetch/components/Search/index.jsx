@@ -43,7 +43,7 @@ export default class Search extends Component {
     //   }
     // )
     //#endregion
-    // 优化fetch
+
     try {
       const result = await fetch(`/api1/search/users2?q=${keyword}`)
       const data = await result.json()
