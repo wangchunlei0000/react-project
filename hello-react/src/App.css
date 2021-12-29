@@ -1,52 +1,54 @@
 .app-wrapper {
-  width: 600px;
+  width: 800px;
   position: absolute;
   left: 0;
   right: 0;
   margin: auto;
 }
-.search-input-wrapper {
-  display: flex;
-  background-color:cornsilk;
-  padding: 24px;
-  box-sizing: border-box;
+.app-wrapper .app-header {
+  height: 100px;
+  line-height: 100px;
+  font-weight: bold;
+  font-size: 28px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
 }
-.search-input-wrapper input {
-  flex: 1;
-  height: 32px;
-  border: 1px solid darkgrey;
-  outline: none;
-  padding-left: 12px;
-  box-sizing: border-box;
-}
-.search-input-wrapper button {
-  border: 1px solid #ccc;
-  background-color: #fff;
-  margin-left: 8px;
-}
-.search-list-wrapper {
-  background-color: #ddd;
-  min-height: 50px;
-  box-sizing: border-box;
+.app-wrapper .app-body {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
 }
-.search-item-wrapper .item-content {
-  width: 100px;
+.app-wrapper .app-body .nav {
+  width: 200px;
+  border-radius: 5px;
   border: 1px solid #ddd;
+  overflow: hidden;
   box-sizing: border-box;
-  padding: 4px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
 }
-.search-item-wrapper .item-content img {
-  width: 100%;
+.app-wrapper .app-body .nav .nav-item {
+  height: 50px;
+  line-height: 50px;
+  box-sizing: border-box;
+  padding-left: 8px;
+  border-bottom: 1px dotted #ddd;
+  cursor: pointer;
+  text-decoration: none;
 }
-.search-item-wrapper .item-content span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.app-wrapper .app-body .nav .nav-item:hover {
+  color: white;
+  background-color: rgb(164, 198, 199);
+}
+.app-wrapper .app-body .nav .nav-item.native {
+  background-color: cadetblue;
+  color: white;
+}
+.app-wrapper .app-body .nav .nav-item:last-child {
+  border: none;
+}
+.app-wrapper .app-body .content {
+  margin-left: 30px;
+  background-color: wheat;
+  flex: 1;
 }
