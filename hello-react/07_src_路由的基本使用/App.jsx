@@ -17,8 +17,8 @@ export default class App extends Component {
           </div>
           <div className="content">
             {/* 注册路由 */}
-          <Route path="/home" component={ Home }/>
-          <Route path="/about" component={ About }/>
+            <Route path="/home" component={ Home }/>
+            <Route path="/about" component={ About }/>
           </div>
         </div>
       </div>

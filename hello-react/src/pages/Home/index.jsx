@@ -1,14 +1,5 @@
 import React, { Component } from 'react'
 
-export default class Home extends Component {
-  render() {
-    // console.log('-----------', this.props)
-    return (
-      <div>Homehhhhhhhhhhhhhhhhhhhhhhhhhhh</div>
-    )
-  }
-}
-
 /**
     history:
         go: ƒ go(n)
@@ -25,3 +16,12 @@ export default class Home extends Component {
         path: "/home"
         url: "/home"
  */
+export default class Home extends Component {
+  render() {
+    // console.log('------Home 接收到的 props-----', this.props)
+    return (
+      <div>Homehhhhhhhhhhhhhhhhhhhhhhhhhhh</div>
+    )
+  }
+}
+
