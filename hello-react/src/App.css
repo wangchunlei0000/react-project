@@ -41,7 +41,7 @@
   color: white;
   background-color: rgb(164, 198, 199);
 }
-.app-wrapper .app-body .nav .nav-item.native {
+.app-wrapper .app-body .nav .nav-item.active-style {
   background-color: cadetblue;
   color: white;
 }
