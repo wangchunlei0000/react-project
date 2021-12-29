@@ -8,3 +8,20 @@ export default class Home extends Component {
     )
   }
 }
+
+/**
+    history:
+        go: ƒ go(n)
+        goBack: ƒ goBack()
+        goForward: ƒ goForward()
+        push: ƒ push(path, state)
+        replace: ƒ replace(path, state)
+    location:
+        pathname: "/home"
+        search: ""
+        state: undefined
+    match:
+        params: {}
+        path: "/home"
+        url: "/home"
+ */
