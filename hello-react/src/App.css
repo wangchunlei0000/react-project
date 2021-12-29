@@ -50,6 +50,8 @@
 }
 .app-wrapper .app-body .content {
   margin-left: 30px;
-  background-color: wheat;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   flex: 1;
 }
