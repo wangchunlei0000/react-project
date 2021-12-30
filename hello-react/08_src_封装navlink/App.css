@@ -1,0 +1,57 @@
+.app-wrapper {
+  width: 800px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.app-wrapper .app-header {
+  height: 100px;
+  line-height: 100px;
+  font-weight: bold;
+  font-size: 28px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+.app-wrapper .app-body {
+  display: flex;
+  flex-direction: row;
+}
+.app-wrapper .app-body .nav {
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.app-wrapper .app-body .nav .nav-item {
+  height: 50px;
+  line-height: 50px;
+  box-sizing: border-box;
+  padding-left: 8px;
+  border-bottom: 1px dotted #ddd;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+.app-wrapper .app-body .nav .nav-item:hover {
+  color: white;
+  background-color: rgb(164, 198, 199);
+}
+.app-wrapper .app-body .nav .nav-item.active-style {
+  background-color: cadetblue;
+  color: white;
+}
+.app-wrapper .app-body .nav .nav-item:last-child {
+  border: none;
+}
+.app-wrapper .app-body .content {
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex: 1;
+}

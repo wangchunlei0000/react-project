@@ -15,13 +15,12 @@ export default class App extends Component {
           <div className="nav">
             {/* 在 React 中靠路由链接实现切换组件 -- 编写路由链接 */}
             <MyNavLink to="/home">Home</MyNavLink>
-            <MyNavLink to="/about/a/aa">About</MyNavLink>
+            <MyNavLink to="/about">About</MyNavLink>
           </div>
           <div className="content">
             {/* 注册路由 */}
             <Switch>
-              {/* exact 路由严格匹配 */}
-              <Route exact path="/home" component={ Home }/>
+              <Route path="/home" component={ Home }/>
               <Route path="/about" component={ About }/>
             </Switch>
           </div>
