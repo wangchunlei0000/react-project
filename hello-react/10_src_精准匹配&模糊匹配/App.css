@@ -21,6 +21,7 @@
 .app-wrapper .app-body .nav {
   width: 200px;
   border-radius: 5px;
+  border: 1px solid #ddd;
   overflow: hidden;
   box-sizing: border-box;
   display: flex;
@@ -35,7 +36,6 @@
   cursor: pointer;
   text-decoration: none;
   color: black;
-  border: 1px dotted #ddd;
 }
 .app-wrapper .app-body .nav .nav-item:hover {
   color: white;
@@ -45,32 +45,13 @@
   background-color: cadetblue;
   color: white;
 }
+.app-wrapper .app-body .nav .nav-item:last-child {
+  border: none;
+}
 .app-wrapper .app-body .content {
   margin-left: 30px;
   display: flex;
+  align-items: center;
+  justify-content: space-around;
   flex: 1;
-}
-
-.home-wrapper .home-header {
-  font-size: 18px;
-  line-height: 20px;
-  font-weight: bold;
-  margin-bottom: 12px;
-}
-
-.home-wrapper .home-nav .nav-item {
-  display: inline-block;
-  text-decoration: none;
-  color: black;
-  border: 1px solid bisque;
-  padding: 8px 12px;
-  border-radius: 5px 5px 0 0;
-}
-.home-wrapper .home-nav .nav-item:hover {
-  background-color: rgb(248, 233, 214);
-  color: white;
-}
-.home-wrapper .home-nav .nav-item.active-style {
-  background-color: bisque;
-  color: white;
 }
