@@ -19,7 +19,7 @@ export default class Detail extends Component {
       <ul>
         <li>ID: { id } </li>
         <li>TITLE: { title }</li>
-        <li>CONTENT: {findResult.content}</li>
+        <li>CONTENT: { findResult.content }</li>
       </ul>
     )
   }
