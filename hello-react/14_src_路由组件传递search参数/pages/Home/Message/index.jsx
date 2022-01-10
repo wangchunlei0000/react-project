@@ -16,23 +16,18 @@ export default class Message extends Component {
       <div>
         <ul className='message-wrapper'>
           {
-            messageArr.map(({id, title}) => {
+            messageArr.map(item => {
               return (
-                <li key={id}>
-                  {/* 向路由组件传递 state 参数 */}
-                  <Link to={
-                    {
-                      pathname: '/home/message/detail', 
-                      state: { id, title }
-                    }
-                  }>{ title }</Link>
+                <li key={item.id}>
+                  {/* 向路由组件传递 search 参数 */}
+                  <Link to={`/home/message/detail/?id=${item.id}&title=${item.title}`}>{item.title}</Link>
                 </li>
               )
             })
           }
         </ul>
         <hr />
-        {/* state 参数无需声明接收 */}
+        {/* search 参数无需声明接收 */}
         <Route path="/home/message/detail" component={ Detail }/>
       </div>
     )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// const qs = require('querystring')
+const qs = require('querystring')
 
 const detailData = [
   { id: '001', content: 'hello wang' },
@@ -9,8 +9,9 @@ const detailData = [
 
 export default class Detail extends Component {
   render() {
-    console.log('state ------this.props=======detail', this.props)
-    const { location: { state: { id, title } } } = this.props
+    // console.log('this.props=======detail', this.props)
+    const { location: { search } } = this.props
+    const { id, title } = qs.parse(search.substring(1))
     const findResult = detailData.find(item => {
       return item.id === id
     })
