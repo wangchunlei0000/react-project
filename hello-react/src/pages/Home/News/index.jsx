@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 
 export default class News extends Component {
+  componentDidMount() {
+    setTimeout(() => {
+      this.props.history.push(`/home/message/detail?id=001&title=message001`)
+    }, 1000);
+  }
   render() {
     return (
       <div>

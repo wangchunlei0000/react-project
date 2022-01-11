@@ -28,6 +28,15 @@ export default class Message extends Component {
     // 【state 参数】
     // this.props.history.push(`/home/message/detail`, {id, title})
   }
+  goBack = () => {
+    this.props.history.goBack()
+  }
+  goForward = () => {
+    this.props.history.goForward()
+  }
+  go = () => {
+    this.props.history.go(2)
+  }
   render() {
     const { messageArr } = this.state
     return (
@@ -48,6 +57,10 @@ export default class Message extends Component {
           }
         </ul>
         <hr />
+        <button onClick={this.goBack}>goBack</button>
+        <button onClick={this.goForward}>goForward</button>
+        <button onClick={this.go}>go</button>
+
         {/* state 参数无需声明接收 */}
         <Route path="/home/message/detail" component={ Detail }/>
       </div>
