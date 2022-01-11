@@ -9,8 +9,8 @@ const detailData = [
 
 export default class Detail extends Component {
   render() {
-    console.log('state ------this.props=======detail', this.props)
-    const { location: { state: { id, title } } } = this.props
+    console.log('this.props.match.params', this.props)
+    const { match: { params: { id, title } } } = this.props
     const findResult = detailData.find(item => {
       return item.id === id
     })

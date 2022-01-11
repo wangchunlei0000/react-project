@@ -9,7 +9,15 @@ export default class Message extends Component {
       { id: '003', title: 'message003'}
     ]
   }
+  replaceShow = (id, title) => {
+    return () => {
+      this.props.history.replace(`/home/message/detail/${id}/${title}`)
+    }
+  }
 
+  pushShow = (id, title) => {
+    this.props.history.push(`/home/message/detail/${id}/${title}`)
+  }
   render() {
     const { messageArr } = this.state
     return (
@@ -20,13 +28,9 @@ export default class Message extends Component {
               return (
                 <li key={id}>
                   {/* 向路由组件传递 state 参数 */}
-                  <Link to={
-                    {
-                      pathname: '/home/message/detail', 
-                      state: { id, title }
-                    }
-                  }>{ title }</Link>
-                  {/* 开启 replace 模式 替换history */}
+                  <Link to={`/home/message/detail/${id}/${title}`}>{ title }</Link>
+                  &nbsp;&nbsp;<button onClick={() => {this.pushShow(id, title)}}>push view</button>&nbsp;&nbsp;
+                  <button onClick={this.replaceShow(id, title)}>replace view</button>
                 </li>
               )
             })
@@ -34,7 +38,7 @@ export default class Message extends Component {
         </ul>
         <hr />
         {/* state 参数无需声明接收 */}
-        <Route path="/home/message/detail" component={ Detail }/>
+        <Route path="/home/message/detail/:id/:title" component={ Detail }/>
       </div>
     )
   }
