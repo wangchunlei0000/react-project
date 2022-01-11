@@ -25,7 +25,8 @@ export default class Message extends Component {
                       pathname: '/home/message/detail', 
                       state: { id, title }
                     }
-                  }>{ title }</Link>
+                  }
+                  replace >{ title }</Link>
                   {/* 开启 replace 模式 替换history */}
                 </li>
               )
